@@ -31,7 +31,7 @@ public class Date {
 	/** Initialization constructor, initializes the instance variables to the parameters passed in. */
 	public Date(int d, int m, int y) {
 		this.day = d;
-		this.month = d;
+		this.month = m;
 		this.year = y;
 	}
 	
@@ -73,7 +73,7 @@ public class Date {
 	/** returns a String value which will be used to display a Date object. */
 	@Override
 	public String toString() {
-		return "Date [day:" + day + ", month:" + month + ", year:" + year + "]";
+		return day + "/" + month + "/" + year;
 	}
 
 	/** Takes a Date parameter and returns a boolean (true or false) to	indicate equality. */

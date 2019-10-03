@@ -50,6 +50,8 @@ public class JointAccount extends BankAccount{
 	public void setAddressB(String addressB) {
 		this.addressB = addressB;
 	}
+
+	
 	
 	
 	

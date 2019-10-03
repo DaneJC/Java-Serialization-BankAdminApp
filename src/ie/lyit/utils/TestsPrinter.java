@@ -63,7 +63,7 @@ public class TestsPrinter{
 	}
 	
 	public void newSubTestTask(String description) {
-		System.out.println("# : "+description+":");
+		System.out.println("# "+description+":");
 		System.out.println(hrSegment);
 //		incTotal();
 	}
@@ -92,7 +92,9 @@ public class TestsPrinter{
 	}
 	
 	public void toStringTest(String syntax, String result, String expectedResult) {
-		System.out.println(syntax+":\n=> "+result+" \t| Expected: "+expectedResult);
+		System.out.println(syntax+":\n"+result);
+		newSegment("-   ");
+		System.out.println("Expected: \n"+expectedResult);
 //		if(result == expectedResult)
 //			incPasses();
 //		else incFails();

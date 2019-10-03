@@ -15,7 +15,7 @@ package ie.lyit.bank;
 /** 
  * BankAccount abstract class used for sub class BankAccount inheritance.
  */
-public abstract class BankAccount {
+public abstract class BankAccount implements Transactable{
 
 	/* class variable nextAccountNumber. */
 	private static int nextAccountNumber=1;
@@ -111,8 +111,24 @@ public abstract class BankAccount {
 		return dateOpened;
 	}
 	/* END: getters and setters */ 
-
 	
+	
+	@Override
+	public void deposit(double amount) {
+		this.balance += amount;
+		
+	}
+
+	@Override
+	public void withdraw(double amount) throws IllegalArgumentException {
+		if(this.balance >= amount)
+			this.balance -= amount;
+		else {
+			throw new IllegalArgumentException("Withdraw amount exceeds current balance!");
+		}
+			
+		
+	}
 	
 	
 	

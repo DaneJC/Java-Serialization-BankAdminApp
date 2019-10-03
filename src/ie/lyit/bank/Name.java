@@ -70,7 +70,7 @@ public class Name {
 	/**	Returns a String value which will be used to display a Name object. */
 	@Override
 	public String toString() {
-		return "Name [title: " + title + ", firstName: " + firstName + ", lastName: " + lastName + "]";
+		return title + " " + firstName + " " + lastName;
 	}
 
 	/** Takes an Object parameter and returns a boolean (true or false) to indicate equality. */

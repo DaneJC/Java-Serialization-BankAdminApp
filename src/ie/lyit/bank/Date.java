@@ -30,9 +30,9 @@ public class Date {
 	
 	/** Initialization constructor, initializes the instance variables to the parameters passed in. */
 	public Date(int d, int m, int y) {
-		this.day = d;
-		this.month = m;
-		this.year = y;
+		setDay(d);
+		setMonth(m);
+		setYear(y);
 	}
 	
 	/* BEGIN: getters and setters */
@@ -43,8 +43,12 @@ public class Date {
 	}
 
 	/** Sets instance variable day to the String parameters passed in. */
-	public void setDay(int day) {
-		this.day = day;
+	public void setDay(int day) throws IllegalArgumentException {
+		if(day <= 31 && day > 0)
+			this.day = day;
+		else {
+			throw new IllegalArgumentException("Day value out of bounds! [1->31]");
+		}
 	}
 
 	// month 
@@ -54,8 +58,12 @@ public class Date {
 	}
 	
 	/** Sets instance variable month to the String parameters passed in. */
-	public void setMonth(int month) {
-		this.month = month;
+	public void setMonth(int month) throws IllegalArgumentException {
+		if(month <= 31 && month > 0)
+			this.month = month;
+		else {
+			throw new IllegalArgumentException("Month value out of bounds! [1->12]");
+		}
 	}
 	
 	// year 
@@ -65,15 +73,19 @@ public class Date {
 	}
 
 	/** Sets instance variable year to the String parameters passed in. */
-	public void setYear(int year) {
-		this.year = year;
+	public void setYear(int year)  throws IllegalArgumentException {
+		if(year <= 2020 && year > 1900)
+			this.year = year;
+		else {
+			throw new IllegalArgumentException("Year value out of bounds! [1900->Present]");
+		}
 	}
 	/* END: getters and setters */ 
 	
 	/** returns a String value which will be used to display a Date object. */
 	@Override
 	public String toString() {
-		return day + "/" + month + "/" + year;
+		return "Date [day:" + day + ", month:" + month + ", year:" + year + "]";
 	}
 
 	/** Takes a Date parameter and returns a boolean (true or false) to	indicate equality. */

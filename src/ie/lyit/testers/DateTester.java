@@ -100,7 +100,10 @@ public class DateTester {
 		print.newSubTestTask("Testing duplicate objects objDate_1 + objDate_4 for equality with equals()");
 		print.booleanTest("objDate_1.equals(objName_6)", objDate_1.equals(objDate_4), false);
 		print.endTest();
+		System.out.print("END PRACTICAL 1 + 2 TESTS");
 		print.concludeTests();
+		
+		Date objDate_5 = new Date(31,2,2012);
 
 	}
 

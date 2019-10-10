@@ -115,25 +115,25 @@ public class CurrentTester {
 		print.endTest();
 		
 		/* 6: Add a currentSearch() method to the CurrentTester class. */
-		print.newTestTask("6: Add a currentSearch() method to the CurrentTester class.");
-		print.newSubTestTask("Testing currentSearch() on currentAccount object accOne which IS stored in currents ArrayList");
-		print.booleanTest("nameSearch(objName_1, names)", currentSearch(accOne, currents), true);
-		print.newSegment("-");
-		print.process("Creating 5th CurrentAccount object for none present currentSearch() test..");
-		CurrentAccount accFive = new CurrentAccount(
-				new Name("Ms", "Maggie", "Simpson"),
-				"1 Springfield Road, Springfield, OverThere.",
-				5.00,
-				10,
-				new Date(03, 10, 2019)
-			);
-		
-		print.newSubTestTask("Testing currentSearch() on currentAccount object accFive which IS NOT stored in currents ArrayList");
-		print.booleanTest("nameSearch(objName_4, names)", currentSearch(accFive, currents), false);
-		print.endTest();
-		print.concludeTests();
-		
-		print.concludeTests();
+//		print.newTestTask("6: Add a currentSearch() method to the CurrentTester class.");
+//		print.newSubTestTask("Testing currentSearch() on currentAccount object accOne which IS stored in currents ArrayList");
+//		print.booleanTest("nameSearch(objName_1, names)", currentSearch(accOne, currents), true);
+//		print.newSegment("-");
+//		print.process("Creating 5th CurrentAccount object for none present currentSearch() test..");
+//		CurrentAccount accFive = new CurrentAccount(
+//				new Name("Ms", "Maggie", "Simpson"),
+//				"1 Springfield Road, Springfield, OverThere.",
+//				5.00,
+//				10,
+//				new Date(03, 10, 2019)
+//			);
+//		
+//		print.newSubTestTask("Testing currentSearch() on currentAccount object accFive which IS NOT stored in currents ArrayList");
+//		print.booleanTest("nameSearch(objName_4, names)", currentSearch(accFive, currents), false);
+//		print.endTest();
+//		print.concludeTests();
+//		
+//		print.concludeTests();
 		
 	}
 

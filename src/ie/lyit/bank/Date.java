@@ -20,6 +20,7 @@ public class Date {
 
 	/*	Instance variables – day, month, and year. */
 	private int day, month, year;
+	private final String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
 	
 	/**	Default constructor, initializes the instance variables to zero. */
 	public Date() {
@@ -35,50 +36,85 @@ public class Date {
 		setYear(y);
 	}
 	
+	private String checkDate() {
+		String status = "pass";
+		switch(getMonth()) {
+			// Feb
+			case 2:
+				// permitted day values 1 -> 28
+				if(getDay() < 1 || getDay() > 28)
+					status = "Day value out of range for "+months[getMonth()-1]+"! [1 -> 28]";
+				break;
+				
+			// Apr, Jun, Sep, Nov
+			case 4: case 6: case 9: case 11:
+				// permitted day values 1 -> 30
+				if(getDay() < 1 || getDay() > 30)
+					status = "Day value out of range for "+months[getMonth()-1]+"! [1 -> 30]";
+				break;
+				
+			// Jan, Mar, May, Jul, Aug, Oct, Dec
+			case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+				// permitted day values 1 -> 31
+				if(getDay() < 1 || getDay() > 31)
+					status = "Day value out of range for "+months[getMonth()-1]+"! [1 -> 31]";
+				break;
+		}
+		return status;
+	}
+	
 	/* BEGIN: getters and setters */
 	// day 
 	/** Returns value of instance variable day */
 	public int getDay() {
-		return day;
+		return this.day;
 	}
 
 	/** Sets instance variable day to the String parameters passed in. */
 	public void setDay(int day) throws IllegalArgumentException {
-		if(day <= 31 && day > 0)
+		if(day > 0 && day <=31) {
 			this.day = day;
-		else {
+			if(getMonth() != 0) {
+				String dateFormatResult = checkDate();
+				if(dateFormatResult != "pass")
+					throw new IllegalArgumentException(dateFormatResult);
+			}
+		}else
 			throw new IllegalArgumentException("Day value out of bounds! [1->31]");
-		}
 	}
 
 	// month 
 	/** Returns value of instance variable month */
 	public int getMonth() {
-		return month;
+		return this.month;
 	}
 	
 	/** Sets instance variable month to the String parameters passed in. */
 	public void setMonth(int month) throws IllegalArgumentException {
-		if(month <= 31 && month > 0)
+		
+		if(month > 0 && month <=12) {
 			this.month = month;
-		else {
+			if(getDay() != 0) {
+				String dateFormatResult = checkDate();
+				if(dateFormatResult != "pass")
+					throw new IllegalArgumentException(dateFormatResult);
+			}
+		}else
 			throw new IllegalArgumentException("Month value out of bounds! [1->12]");
-		}
 	}
 	
 	// year 
 	/** Returns value of instance variable year */
 	public int getYear() {
-		return year;
+		return this.year;
 	}
 
 	/** Sets instance variable year to the String parameters passed in. */
 	public void setYear(int year)  throws IllegalArgumentException {
 		if(year <= 2020 && year > 1900)
 			this.year = year;
-		else {
+		else 
 			throw new IllegalArgumentException("Year value out of bounds! [1900->Present]");
-		}
 	}
 	/* END: getters and setters */ 
 	

@@ -11,12 +11,14 @@
 
 package ie.lyit.bank;
 
+import java.io.Serializable;
+
 import com.sun.xml.internal.ws.util.StringUtils;
 
 /** 
  * Name class used to create name objects, a component of a banking system which models The Bank of Ireland System.
  */
-public class Name {
+public class Name implements Serializable{
 
 	/**	Instance variables – title, firstName, and lastName. */
 	private String title, firstName, lastName;

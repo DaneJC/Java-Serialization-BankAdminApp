@@ -11,45 +11,46 @@
 
 package ie.lyit.bank;
 
+import java.io.Serializable;
 
 /** 
  * BankAccount abstract class used for sub class BankAccount inheritance.
  */
-public abstract class BankAccount implements Transactable{
+public abstract class BankAccount implements Transactable, Serializable{
 
 	/* class variable nextAccountNumber. */
-	private static int nextAccountNumber=1;
+	private static int nextAccountNumber=100000;
 	
 	/* Instance variables – accountNo, balance, namePrimary, address, dateOpened */
+	protected Name name;
 	protected int accountNo;
 	protected double balance;
-	protected Name nameA;
-	protected String addressA;
+	protected String address;
 	protected Date dateOpened;
 	
 	/** 
-	 * DEfault constructor, initializes balance to zero, 
+	 * DEfault constructor, initialises balance to zero, 
 	 * sets account to nextAccountNumber then increments nextAccountNumber,
 	 * nameA to default Name object and dateOpened to default Date object.
 	 */
 	public BankAccount(){
 		this.accountNo = nextAccountNumber++;
 		this.balance = 0.0;
-		this.nameA = new Name();
-		this.addressA = "";
+		this.name = new Name();
+		this.address = "";
 		this.dateOpened = new Date();
 	}
 	
 	/** 
-	 * initialization constructor, initializes balance to zero, 
+	 * Initialisation constructor, initialises balance to zero, 
 	 * sets account to nextAccountNumber then increments nextAccountNumber,
 	 * nameA to name param and dateOpened to dateOpened param.
 	 */
 	public BankAccount(Name name, String address, double balance, Date dateOpened){
 		this.accountNo = nextAccountNumber++;
 		this.balance = balance;
-		this.nameA = name;
-		this.addressA = address;
+		this.name = name;
+		this.address = address;
 		this.dateOpened = dateOpened;
 	}
 
@@ -57,8 +58,8 @@ public abstract class BankAccount implements Transactable{
 	@Override
 	public String toString() {
 		return "Account: " + accountNo + ", \t€" + balance + ", "
-				+ "\nName: " + nameA + ", "
-				+ "\naddress: "+addressA + ", "
+				+ "\nName: " + name + ", "
+				+ "\naddress: "+address + ", "
 				+ "\ndateOpened: " + dateOpened;
 	}
 
@@ -78,25 +79,36 @@ public abstract class BankAccount implements Transactable{
 	}
 	
 	/* BEGIN: getters and setters */
+	public void setNextAccountNumber(int accNo) { // ***** added to set next account number when deserializing accounts array list *****
+		nextAccountNumber = accNo;
+	}
 	// accountNo ===
 	public int getAccountNo() {
 		return accountNo;
 	}
 	// name ===
 	public Name getName() {
-		return nameA;
+		return name;
 	}
 
 	public void setName(Name name) {
-		this.nameA = name;
+		this.name = name;
+	}
+	
+	public void setTitle(String title) {
+		this.name.setTitle(title);
+	}
+	
+	public void setSurname(String surname) {
+		this.name.setLastName(surname);
 	}
 	// address ===
 	public String getAddress() {
-		return addressA;
+		return address;
 	}
 
 	public void setAddress(String address) {
-		this.addressA = address;
+		this.address = address;
 	}
 	// balance ===
 	public double getBalance() {

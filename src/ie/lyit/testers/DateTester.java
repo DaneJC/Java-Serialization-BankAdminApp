@@ -103,7 +103,7 @@ public class DateTester {
 		System.out.print("END PRACTICAL 1 + 2 TESTS");
 		print.concludeTests();
 		
-		Date objDate_5 = new Date(31,2,2012);
+		Date objDate_5 = new Date(28,2,1812);
 
 	}
 

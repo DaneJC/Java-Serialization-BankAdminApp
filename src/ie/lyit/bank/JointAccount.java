@@ -17,8 +17,8 @@ public class JointAccount extends BankAccount{
 	
 	public JointAccount() {
 		super();
-		nameA = new Name();
-		addressA = "";	
+		nameB = new Name();
+		addressB = "";	
 	}
 	
 	public JointAccount(Name nameA, Name nameB, String addressA, String addressB, double balance, Date dateOpened) {
@@ -30,7 +30,7 @@ public class JointAccount extends BankAccount{
 	@Override
 	public String toString() {
 		return    "Account: "+ accountNo +"\t€"+ balance+ 
-				"\n  NameA: " + nameA + ", Address: " + addressA +
+				"\n  NameA: " + name + ", Address: " + address +
 				"\n  nameB: " + nameB + ", Address: " + addressB + 
 				"\n Opened: " + dateOpened;
 	}

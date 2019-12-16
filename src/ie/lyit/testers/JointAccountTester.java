@@ -1,3 +1,12 @@
+/**
+* Class: B.Sc. in Cloud Computing
+* Instructor: Maria Boyle
+* Description:  
+* 	JointAccount class ...
+* Date: 03/10/2019
+* @author Dane Campbell - L00142041
+* @version 1.0
+*/
 package ie.lyit.testers;
 
 import ie.lyit.bank.Date;
@@ -47,7 +56,14 @@ public class JointAccountTester {
 		
 		print.newSegment("-");
 		print.newSubTestTask("toString()");
-		print.toStringTest("accOne.toString()", accOne.toString(),"???");	
+		print.toStringTest(
+				"accOne.toString()", 
+				accOne.toString(),
+				"Account: 1	€1000.0\r\n" + 
+				"  NameA: Mr Homer Simpson, Address: 1 Springfield Road, Springfield, OvertHere.\r\n" + 
+				"  nameB: Ms Marge Simpson, Address: 2 Springfield Road, Springfield, OverThere.\r\n" + 
+				" Opened: 26/9/2019"
+				);	
 		
 		
 		

@@ -10,7 +10,9 @@
 
 package ie.lyit.bank;
 
-public class CurrentAccount extends BankAccount {
+import java.io.Serializable;
+
+public class CurrentAccount extends BankAccount implements Serializable{
 	
 	private double overDarft;
 
@@ -27,10 +29,10 @@ public class CurrentAccount extends BankAccount {
 	/** returns a String value which will be used to display a CurrentAccount object. */
 	@Override
 	public String toString() {
-		return    " Account: "+ accountNo +"\t€"+ balance+ 
-				"\n    Name: " + nameA + ", Address: " + addressA +
+		return  "\n Account: "+ accountNo +"\tName: " + name +
+				"\n Address: " + address +
 				"\nOverdaft: " + overDarft + 
-				"\n  Opened: " + dateOpened;
+				"\n  Opened: " + dateOpened+"\t€"+ balance;
 	}
 	
 	/* BEGIN: getters and setters */ 

@@ -11,12 +11,14 @@
 
 package ie.lyit.bank;
 
+import java.io.Serializable;
+
 import com.sun.xml.internal.ws.util.StringUtils;
 
 /** 
  * Name class used to create name objects, a component of a banking system which models The Bank of Ireland System.
  */
-public class Date {
+public class Date implements Serializable{
 
 	/*	Instance variables – day, month, and year. */
 	private int day, month, year;
@@ -121,7 +123,7 @@ public class Date {
 	/** returns a String value which will be used to display a Date object. */
 	@Override
 	public String toString() {
-		return "Date [day:" + day + ", month:" + month + ", year:" + year + "]";
+		return ""+day+"/"+month+"/"+year;
 	}
 
 	/** Takes a Date parameter and returns a boolean (true or false) to	indicate equality. */
